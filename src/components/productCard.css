@@ -1,0 +1,11 @@
+.product-card {
+    width:33%;
+}
+
+.product-card .active {
+    background-color: green;
+}
+
+.product-card .not-active {
+    background-color: blue;
+}

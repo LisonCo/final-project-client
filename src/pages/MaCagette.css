@@ -1,0 +1,45 @@
+.ma-cagette .top-container {
+    height: 15vh;
+    background-color: #E8EDE6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ma-cagette .central-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ma-cagette .left-container {
+    width: 60%;
+    background-color: red;
+    height: 100%;
+}
+
+.ma-cagette .cagette {
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-wrap: wrap;
+}
+
+.ma-cagette .right-container {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ma-cagette .ticket {
+    background-color: #f9f8eb;
+    border-radius: 25px;
+    height: 30vh;
+    width: 80%;
+}
+
+
+

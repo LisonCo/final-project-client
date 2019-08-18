@@ -1,0 +1,18 @@
+.products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products-top-container {
+    height: 20vh;
+    background-color: #E8EDE6;
+}
+
+.all-products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 70%;
+}
+

@@ -1,0 +1,9 @@
+.productItem {
+    width:33%;
+    height: 40vh;
+    text-align: center;
+}
+
+.productItem img {
+    width: 30%;
+}
