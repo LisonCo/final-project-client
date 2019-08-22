@@ -19,7 +19,7 @@ class MaCagette extends Component {
 // Get all the products from the database
   componentDidMount() {
     axios
-      .get("http://localhost:3001/products", { withCredentials: true })
+      .get(process.env.REACT_APP_API + "/products", { withCredentials: true })
       .then(response => {
         this.setState({ products: response.data });
       });

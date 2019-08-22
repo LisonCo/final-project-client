@@ -13,7 +13,7 @@ constructor(){
     }
     
 componentDidMount() {
-    axios.get("http://localhost:3001/products", {withCredentials: true})
+    axios.get(process.env.REACT_APP_API + "/products", {withCredentials: true})
     .then(response => {
         this.setState({products: response.data})
     })
