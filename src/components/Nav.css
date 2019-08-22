@@ -26,6 +26,10 @@
     background-color: #E8EDE6;
 }
 
+.active {
+    background-color: #E8EDE6;
+}
+
 .nav h1 {
     margin: 2.5vh 0;
     font-family: 'Hepta Slab', serif;

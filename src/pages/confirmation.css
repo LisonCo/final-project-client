@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Hepta+Slab:300&display=swap');
+
+.confirmation .top-container {
+    height: 15vh;
+    background-color: #E8EDE6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation h1{
+    font-family: 'Hepta Slab', serif;
+    font-size: 2em;
+    margin: 5vh;
+}
+
+.confirmation h2{
+    font-family: 'Hepta Slab', serif;
+}
+
+.confirmation .main-container {
+    display: flex;
+    justify-content: flex-start;
+    height: 70vh;
+}
+
+.confirmation .left-container {
+    width: 30%;
+    padding: 0 2%;
+}
+
+.middle-container {
+    width: 40%;
+}
+
+.confirmation .right-container {
+    width: 30%;
+    background-color: #d2c8c8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirmation .right-container button {
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 0.5em;
+    font-size: 1em;
+    background-color: #d2c8c8;
+    outline: 0;
+    width: 45%;
+    margin-top: 5%;
+}
+
+.confirmation .right-container button:hover {
+    background-color: #E8EDE6;
+}
+
+.confirmation .right-container a {
+    padding: 2vh;
+    text-decoration: none;
+    color: #6e2142;
+}

@@ -7,31 +7,37 @@ export default class Auth {
         this.login = this.login.bind(this);
     }
 
-    signup({username, password}) {
+    signup({firstName, lastName, phone, emailAddress, password}) {
         return axios({
             method: "POST",
             url: "/signup",
             baseURL: this.domain,
             headers: { 'content-type': 'application/x-www-form-urlencoded' },
-            data: qs.stringify({username, password}),
+            data: qs.stringify({firstName, lastName, phone, emailAddress, password}),
             withCredentials: true
         })
         .then((response)=> {
             this.setUser(response.data.user);
         })
+        .catch(error => {
+            console.log(error)
+        })
     }
 
-    login(username, password) {
+    login(emailAddress, password) {
         return axios({
             method: "POST",
             url: "/login",
             baseURL: this.domain,
             headers: { 'content-type': 'application/x-www-form-urlencoded' },
-            data: qs.stringify({username, password}),
+            data: qs.stringify({emailAddress, password}),
+            withCredentials: true
         })
         .then((response)=> {
-            debugger
             this.setUser(response.data.user)
+        })
+        .catch(error => {
+            console.log(error)
         })
     }
 
@@ -45,7 +51,11 @@ export default class Auth {
     }
 
     getUser(){
-        return JSON.parse(localStorage.getItem('user'));
+        try {
+            return JSON.parse(localStorage.getItem('user'));
+        } catch(error) {
+            return undefined;
+        }
     }
 
     logout(){
@@ -54,7 +64,10 @@ export default class Auth {
             url: "/logout"
         })
         .then((res)=> {
-            localStorage.removeItem('user');
+            localStorage.clear()
+        })
+        .catch(error => {
+            console.log(error)
         })
     }    
 }

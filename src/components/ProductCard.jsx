@@ -28,7 +28,11 @@ class ProductCard extends Component {
         
         return(
             <div className="product-card">
-                <button className={btnClass} onClick={this.changeButtonClass}>{this.props.name}</button>
+                <button className={btnClass} onClick={() => {
+                    this.changeButtonClass()
+                    this.props.total(this.state.active, this.props.price)
+                }}><img src='./images/logo.png' alt='bottle'/></button>
+                <p>{this.props.name}</p>
             </div>
         )
     }

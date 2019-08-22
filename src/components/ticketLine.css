@@ -1,0 +1,14 @@
+.ticketLine {
+    line-height: 2em;
+}
+
+.ticketLine .bullet {
+    color:#d2c8c8;
+    padding: 0.2em;
+    font-weight: bolder
+}
+
+.ticketLine .quantity {
+    color: grey;
+    font-size: 0.9em;
+}

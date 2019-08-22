@@ -5,8 +5,12 @@
 }
 
 .products-top-container {
-    height: 20vh;
+    height: 15vh;
     background-color: #E8EDE6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
 }
 
 .all-products {

@@ -1,9 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Hepta+Slab:300&display=swap');
+
 .productItem {
     width:33%;
     height: 40vh;
     text-align: center;
 }
 
+.productItem p {
+    font-family: 'Hepta Slab', serif;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 .productItem img {
-    width: 30%;
+    height: 45%;
+    padding: 5%;
+}
+
+.productItem a {
+    text-decoration: none;
+    color: #6e2142;
 }

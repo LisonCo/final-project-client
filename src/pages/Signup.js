@@ -3,13 +3,16 @@ import './signup.css'
 import Auth from "../utils/Auth";
 const auth = new Auth();
 
-class signup extends Component {
+class Signup extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       user: {
-        username: "",
+        firstName: "",
+        lastName: "",
+        phone: "",
+        emailAddress: "",
         password: "",
       }
     };
@@ -44,35 +47,75 @@ class signup extends Component {
         <div className="top-container"></div>
         <h1>Sign up</h1>
         <form onSubmit={this.handleFormSubmit}>
-          <div>
-            <label>Username:</label>
+        <div>
+            <label>First name</label>
             <input
               type="text"
-              name="username"
-              placeholder="Username"
-              value={this.state.username}
+              name="firstName"
+              placeholder="First name"
+              value={this.state.firstName}
               onChange={this.handleFormChange}
+              required
             />
           </div>
 
           <div>
-            <label>Password:</label>
+            <label>Last Name</label>
             <input
               type="text"
+              name="lastName"
+              placeholder="Last Name"
+              value={this.state.lastName}
+              onChange={this.handleFormChange}
+              required
+            />
+          </div>
+
+          <div>
+            <label>Phone number</label>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="00 00 00 00 00"
+              value={this.state.phoneNumber}
+              onChange={this.handleFormChange}
+              pattern='^\+?\d{10,13}'
+              required
+            />
+          </div>
+
+          <div>
+            <label>Email Address</label>
+            <input
+              type="email"
+              name="emailAddress"
+              placeholder="bonjour@la-cagette.fr"
+              value={this.state.emailAddress}
+              onChange={this.handleFormChange}
+              required
+            />
+          </div>
+
+          <div>
+            <label>Password</label>
+            <input
+              type="password"
               name="password"
               placeholder="Password"
               value={this.state.password}
               onChange={this.handleFormChange}
+              required
             />
           </div>
 
-          <div>
-            <input type="submit" value="Submit" />
+          <div className="input">
+            <input type="submit" value="Submit" className='button' />
           </div>
+          <img src='./images/bottles.png' alt="bottles"/>
         </form>
       </div>
     );
   }
 }
 
-export default signup;
+export default Signup;

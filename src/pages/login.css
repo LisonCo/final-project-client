@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Hepta+Slab:300&display=swap');
 
-.signup {
+.login {
     background-color: #E8EDE6;
     height: 75vh;
     display: flex;
@@ -13,43 +13,41 @@
     line-height: 1.5em;
 }
 
-.signup h1{
+.login h1{
     font-family: 'Hepta Slab', serif;
     font-size: 3em;
-    margin: 2vh 0 5vh 0;
+    margin: 5vh;
 }
 
-.signup input{
-    width:100%;
-}
-
-.signup input[type=text],
-.signup input[type=password],
-.signup input[type=tel],
-.signup input[type=email] {
+.login input[type=email],
+input[type=password] {
     width: 100%;
-    padding: 10px 20px;
+    padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
   }
 
-.signup img {
+.login img {
     width: 35vw;
     position: absolute;
     top: 30vh;
-    left: 64vw;
+    right: 65vw;
 }
 
-.signup .input {
+.login .input {
     text-align: center;
 }
 
-.signup textarea:focus, input:focus{
+.login input{
+    width:100%;
+}
+
+.login textarea:focus, input:focus{
     outline: none;
     border: 2px solid #6e2142;
 }
 
-.signup .button {
+.login .button {
     border-radius: 10px;
     border: 1px solid black;
     padding: 1em;
@@ -57,10 +55,15 @@
     background-color: #E8EDE6;
     outline: 0;
     width: 50%;
-    margin: 5% 0;
+    margin: 10% 0;
 }
 
-.signup .button:hover {
+.login .button:hover {
     background-color: #d2c8c8;
     border: 1px solid #d2c8c8;
+}
+
+.login a {
+    text-decoration: none;
+    color: #6e2142;
 }

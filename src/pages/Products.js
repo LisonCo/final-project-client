@@ -3,7 +3,7 @@ import './products.css'
 import ProductItem from '../components/ProductItem'
 import axios from 'axios';
 
-class products extends Component {
+class Products extends Component {
 
 constructor(){
     super()
@@ -17,6 +17,9 @@ componentDidMount() {
     .then(response => {
         this.setState({products: response.data})
     })
+    .catch(err => {
+        console.log(err)
+    })
 }
 
 render() {
@@ -26,7 +29,7 @@ render() {
             key={index.toString()}
             name={product.name}
             color={product.color}
-            image={product.image}/>
+            image={product.image1}/>
         )
     })
     return(
@@ -45,5 +48,5 @@ render() {
 }
 }
 
-export default products
+export default Products
 

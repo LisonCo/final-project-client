@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    letter-spacing: 1px;
 }
 
 .ma-cagette .central-container {
@@ -14,7 +15,6 @@
 
 .ma-cagette .left-container {
     width: 60%;
-    background-color: red;
     height: 100%;
 }
 
@@ -24,21 +24,53 @@
     justify-content: center;
     align-items:center;
     flex-wrap: wrap;
+    height: 65%;
 }
 
 .ma-cagette .right-container {
     width: 40%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .ma-cagette .ticket {
-    background-color: #f9f8eb;
     border-radius: 25px;
-    height: 30vh;
+    border: 2px solid #d2c8c8;
+    height: 55vh;
     width: 80%;
+    padding: 3vh;
+    position: relative;
+}
+
+.ma-cagette .total {
+    position: absolute;
+    top: 45vh;
+    font-size: 1.5em;
+    color:#6e2142;
+}
+
+.ma-cagette .totalPrice {
+    color: black;
+    font-size: 1em;
+    position: absolute;
+    left: 30vw;
+    bottom: 6.5vh;
+}
+
+.ma-cagette .button {
+    border-radius: 10px;
+    border: 1px solid #6e2142;
+    padding: 0.6em;
+    font-size: 0.6em;
+    outline: 0;
+    background-color: white;
+    margin-top: 1em;
+}
+
+.ma-cagette .button:hover {
+    background-color: #d2c8c8;
+    border: 1px solid #d2c8c8;
 }
 
 

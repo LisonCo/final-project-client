@@ -1,14 +1,16 @@
 import React, { Component } from "react";
+import './login.css'
+import {Link} from 'react-router-dom';
 import Auth from "../utils/Auth";
 const auth = new Auth();
 
-class login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       user: {
-        username: "",
+        emailAddress: "",
         password: "",
       }
     };
@@ -18,10 +20,10 @@ class login extends Component {
 
   handleFormSubmit = e => {
     e.preventDefault();
-    auth.login(this.state.user.username, this.state.user.password)
+    auth.login(this.state.user.emailAddress, this.state.user.password)
       .then(() => {
         this.setState({ error: "" });
-        this.props.history.push("/");
+        this.props.history.push("/ma-cagette");
       })
       .catch(({ response }) => {
         this.setState({ error: response });
@@ -38,24 +40,24 @@ class login extends Component {
 
   render() {
     return (
-      <div>
+      <div className="login">
         <h1>Login</h1>
         <form onSubmit={this.handleFormSubmit}>
           <div>
-            <label>Username:</label>
+            <label>Email Address</label>
             <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={this.state.username}
+              type="email"
+              name="emailAddress"
+              placeholder="bonjour@la-cagette.fr"
+              value={this.state.emailAddress}
               onChange={this.handleFormChange}
             />
           </div>
 
           <div>
-            <label>Password:</label>
+            <label>Password</label>
             <input
-              type="text"
+              type="password"
               name="password"
               placeholder="Password"
               value={this.state.password}
@@ -63,13 +65,17 @@ class login extends Component {
             />
           </div>
 
-          <div>
-            <input type="submit" value="Submit" />
+          <div className="input">
+            <input type="submit" value="Submit" className="button" />
           </div>
         </form>
+        <div>
+          Not a user yet? <Link to='/signup'>Sign up first!</Link>
+        </div>
+        <img src='./images/bottles.png' alt="bottles"/>
       </div>
     );
   }
 }
 
-export default login;
+export default Login;
