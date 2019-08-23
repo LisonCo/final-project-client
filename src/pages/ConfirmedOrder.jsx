@@ -24,7 +24,7 @@ class ConfirmedOrder extends Component {
                   <h1>Order confirmed</h1>
               </div>
               <div className="main-container">
-                  <img src='./images/bike2.png' ald="bike"/>
+                  <img src='./images/bike2.png' alt="bike"/>
                 <div className="central-container">
                     <h2>Merci !</h2>
                     <p></p>

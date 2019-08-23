@@ -7,13 +7,25 @@ class ProductCard extends Component {
         super();
 
         this.state = {
-            active: false,
             id: null
         }
     }
 
     componentDidMount() {
-        this.setState({id: this.props.id})
+        let list= JSON.parse(localStorage.getItem('list'));
+        if(!list){
+            this.setState({active:false,id: this.props.id})
+        } else{
+            for(var i=0; i<list.length;i++){
+            if(list[i]===this.props.id){
+                this.setState({active:true,id:this.props.id})
+                return
+            } else {
+                this.setState({active:false,id: this.props.id})
+            }
+        }
+        }
+        
     }
 
     changeButtonClass = () => {
@@ -30,7 +42,6 @@ class ProductCard extends Component {
             <div className="product-card">
                 <button className={btnClass} onClick={() => {
                     this.changeButtonClass()
-                    this.props.total(this.state.active, this.props.price)
                 }}><img src='./images/logo.png' alt='bottle'/></button>
                 <p>{this.props.name}</p>
             </div>

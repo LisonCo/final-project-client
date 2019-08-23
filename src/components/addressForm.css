@@ -32,3 +32,12 @@
     background-color: #d2c8c8;
     border: 1px solid #d2c8c8;
 }
+
+.address-form .input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.address-form .input label {
+    padding-top: 0.5em;
+}

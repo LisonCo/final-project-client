@@ -6,6 +6,7 @@
     border: 2px solid #d2c8c8;
     display: flex;
     flex-direction: column;
+    margin-top: 3vh;
 }
 
 .addressCard button {

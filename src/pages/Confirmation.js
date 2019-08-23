@@ -5,6 +5,7 @@ import axios from "axios";
 import qs from "querystring";
 import AddressForm from '../components/AddressForm';
 import AddressCard from '../components/AddressCard'
+// import OrderLine from '../components/OrderLine';
 
 class Confirmation extends Component {
   constructor(props) {
@@ -20,15 +21,19 @@ class Confirmation extends Component {
     this.addressEdit = this.addressEdit.bind(this);
   }
 
-// stores the localStorage datas in the state and get the user's
+// stores the localStorage datas in the state and get the user and products info
   componentDidMount() {
+    axios
+      .get(process.env.REACT_APP_API + "/products", { withCredentials: true })
+      .then(response => { 
     var total = parseInt(localStorage.getItem('total'));
     var list = localStorage.getItem('list');
     var user = JSON.parse(localStorage.getItem('user'));
-    this.setState({total, list, user})
-  } 
+    this.setState({total, list, user, products:response})
+    })
+  }
 
-// change the edit state to take off the form from the page once submitted
+// changes the edit state to take off the form from the page once submitted
   addressChange() {
     this.setState({edit: true})
   }
@@ -57,7 +62,26 @@ class Confirmation extends Component {
   })
 }
 
+// Return an object with the product's datas from its id
+getProduct(id) {
+  let found = this.state.products.find(oneProduct => {
+      return (oneProduct._id === id);
+  })
+  return found;
+}
+
   render () {
+
+    // // Map over the order array
+    // let order = this.state.list.map((item, index) => {
+    //   const foundProduct = this.getProduct(item)   
+    //    return (
+    //      <OrderLine
+    //      key={index.toString()}
+    //      name={foundProduct.name}
+    //      />
+    //   )
+    // });
 
       return (
         <div className="confirmation">
@@ -82,9 +106,16 @@ class Confirmation extends Component {
             </div>
             <div className="right-container">
               <h2>Order summary</h2>
-              <p>Total : {this.state.total}€</p>
-              <button onClick={() => {this.orderButton(this.state.user, this.state.list)}}>Place your order</button>
-              <Link to='/ma-cagette'>Modify your order</Link>
+              <div className="order">
+                {/* {order} */}
+              </div>
+              <div className="total">
+                <p>Total </p> <div>{this.state.total}€</div>
+              </div>
+              <div className="bottom-container">
+                <button onClick={() => {this.orderButton(this.state.user, this.state.list)}}>Place your order</button>
+                <Link to='/ma-cagette'>Modify your order</Link>
+              </div>
             </div>
        </div>
        </div>

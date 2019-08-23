@@ -14,32 +14,40 @@ class MaCagette extends Component {
     };
     this.changeButton = this.changeButton.bind(this);
     this.total = this.total.bind(this);
+    this.minus=this.minus.bind(this);
   }
 
-// Get all the products from the database
+// Get all the products from the database and the order from the local storage
   componentDidMount() {
     axios
       .get(process.env.REACT_APP_API + "/products", { withCredentials: true })
-      .then(response => {
-        this.setState({ products: response.data });
+      .then(response => { 
+      var list = JSON.parse(localStorage.getItem('list'));
+      var total = parseInt(localStorage.getItem('total'));
+      var list2= []
+      for(var property in list){
+        list2.push(list[property])
+      }
+        this.setState({ products: response.data, activeButtons: list2, total: total });
       });
   }
 
 // Add a product to the activeButtons state when the button is active
-  changeButton(activity, id) {
-    if (!activity) {
-      this.setState({ activeButtons: [...this.state.activeButtons, id] });
+  changeButton=(activity, id)=> {
+    if (activity=== false) {
+      this.setState({ activeButtons: [...this.state.activeButtons, id] });      
+      this.total(id)
     } else {
       let items = [...this.state.activeButtons];
       for (var i = 0; i < items.length; i++) {
         if (items[i] === id) {
+          this.minus(id)
           items.splice(i, 1);
           i--;
         }
       }
       this.setState({ activeButtons: items });
     }
-    this.total()
   };
 
 // Return an object with the product's datas from its id
@@ -51,21 +59,38 @@ class MaCagette extends Component {
   }
 
 // Calculates the total and saves it in the state
-  total(activity, itemPrice) {
-    let total
-    if (!activity) {
-      total = this.state.total + Number(itemPrice)
-    } else {
-      total = this.state.total - Number(itemPrice)
-    }
-    this.setState({total: total})
+//   total(activity, itemPrice) {
+//     let total
+//     if (!activity) {
+//       total = this.state.total + Number(itemPrice)
+//     } else {
+//       total = this.state.total - Number(itemPrice)
+//     }
+//     this.setState({total: total})
+// }
+
+// Calculates the total and saves it in the state
+total = (id) => {
+  let total= this.state.total
+    let foundProduct = this.getProduct(id)
+    total += foundProduct.price
+  this.setState({total});
+  return total
+}
+
+minus = (id) => {
+  let total= this.state.total
+    let foundProduct = this.getProduct(id)
+    total -= foundProduct.price
+  setTimeout(()=>{this.setState({total})},100);
+  return total
 }
 
 // Stores the data in the local storage and redirect to another page
 confirmButton = () =>  {
   const { total, activeButtons } = this.state
   localStorage.setItem('total', total)
-  localStorage.setItem('list', activeButtons)
+  localStorage.setItem('list', JSON.stringify(activeButtons))
   this.props.history.push("/confirm");
 }
 
@@ -81,14 +106,13 @@ confirmButton = () =>  {
           id={product._id}
           price={product.price}
           buttonChange={this.changeButton}
-          total={this.total}
         />
       );
     });
 
 // Map over all the products whose buttons are active
     let allItems = this.state.activeButtons.map((item, index) => {
-      const foundProduct = this.getProduct(item)
+      const foundProduct = this.getProduct(item)   
       return (
       <TicketLine 
         key={index.toString()} 

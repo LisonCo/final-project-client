@@ -15,10 +15,16 @@ class AddressForm extends Component {
               street: "",
               postcode: "",
               city: ""
-          }
+          },
         }
         this.saveAddress = this.saveAddress.bind(this)
       }
+
+// // stores the localStorage datas in the state
+//     componentDidMount() {
+//     var user = JSON.parse(localStorage.getItem('user'));
+//     this.setState({address: user.address})
+//     } 
 
 // sends the address datas to the backend
     saveAddress = ({ firstName, lastName, number, street, postcode, city}) => {
@@ -62,7 +68,7 @@ class AddressForm extends Component {
         return(
             <div className="address-form">
                 <form onSubmit={this.handleFormSubmit}>
-                    <div>
+                    <div className="input">
                         <label>First name</label>
                         <input
                         type="text"
@@ -74,7 +80,7 @@ class AddressForm extends Component {
                         />
                     </div>
 
-                    <div>
+                    <div className="input">
                         <label>Last name</label>
                         <input
                         type="text"
@@ -86,7 +92,7 @@ class AddressForm extends Component {
                         />
                     </div>
 
-                    <div>
+                    <div className="input">
                         <label>Number</label>
                         <input
                         type="text"
@@ -98,7 +104,7 @@ class AddressForm extends Component {
                         />
                     </div>
 
-                    <div>
+                    <div className="input">
                         <label>Street</label>
                         <input
                         type="text"
@@ -110,7 +116,7 @@ class AddressForm extends Component {
                         />
                     </div>
 
-                    <div>
+                    <div className="input">
                         <label>Post code</label>
                         <input
                         type="text"
@@ -122,7 +128,7 @@ class AddressForm extends Component {
                         />
                     </div>
 
-                    <div>
+                    <div className="input">
                         <label>City</label>
                         <input
                         type="text"
@@ -134,7 +140,7 @@ class AddressForm extends Component {
                         />
                     </div>
 
-                    <div className="input">
+                    <div>
                         <input type="submit" value="Save" className='button' />
                     </div>
                 </form>

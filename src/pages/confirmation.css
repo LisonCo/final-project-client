@@ -16,6 +16,7 @@
 
 .confirmation h2{
     font-family: 'Hepta Slab', serif;
+    margin: 2vh 0 0 0;
 }
 
 .confirmation .main-container {
@@ -39,6 +40,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between
+}
+
+.confirmation .right-container .total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirmation .right-container .total p {
+    font-size: 1.3em;
 }
 
 .confirmation .right-container button {
@@ -48,7 +60,7 @@
     font-size: 1em;
     background-color: #d2c8c8;
     outline: 0;
-    width: 45%;
+    width: 90%;
     margin-top: 5%;
 }
 
@@ -60,4 +72,10 @@
     padding: 2vh;
     text-decoration: none;
     color: #6e2142;
+}
+
+.confirmation .bottom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

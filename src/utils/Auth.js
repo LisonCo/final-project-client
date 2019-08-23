@@ -48,6 +48,7 @@ export default class Auth {
 
     setUser(user){
         localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('total', 0);
     }
 
     getUser(){
